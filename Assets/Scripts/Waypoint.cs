@@ -48,7 +48,7 @@ public class Waypoint : MonoBehaviour {
 
         try
         {
-            id = int.Parse(name);
+            id = int.Parse(name) -1;
         }
         catch (Exception)
         {
@@ -67,5 +67,35 @@ public class Waypoint : MonoBehaviour {
 
     private void LinkWaypoint()
     {
+        int indexA = indexActual -1;
+        int indexP = indexActual + 1;
+
+        DefineWaypoint(ref waypointA, indexA);
+        DefineWaypoint(ref waypointP, indexP);
+    }
+
+    private void DefineWaypoint(ref Waypoint waypoint, int index)
+    {
+        if(index < 0)
+        {
+            index = waypoints.Length - 1;
+        }
+        else if(index == waypoints.Length)
+        {
+            index = 0;
+        }
+
+        waypoint = waypoints[index];
+    }
+
+    private void OnDrawGizmos()
+    {
+        LoadWaypointSystem();
+
+        if(waypointP != null)
+        {
+            Gizmos.color = Color.red;
+            Gizmos.DrawLine(transform.position, waypointP.transform.position);
+        }
     }
 }
