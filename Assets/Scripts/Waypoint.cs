@@ -13,8 +13,10 @@ public class Waypoint : MonoBehaviour {
 
     private int indexActual = -1;
 
-    private Waypoint waypointA;
-    private Waypoint waypointP;
+    //[HideInInspector]
+    internal Waypoint waypointA;
+    //[HideInInspector]
+    internal Waypoint waypointP;
 
 	private void Start ()
     {
