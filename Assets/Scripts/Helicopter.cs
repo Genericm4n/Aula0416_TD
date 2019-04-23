@@ -10,10 +10,6 @@ public class Helicopter : MonoBehaviour {
     {
         followTarget = GetComponent<FollowTarget>();
 	}
-	
-	void Update ()
-    {		
-	}
 
     private void OnTriggerEnter(Collider c)
     {
