@@ -9,6 +9,7 @@ public class FollowTarget : MonoBehaviour {
     [Header ("Target")]
     public Transform target;
     public string targetTag;
+    public bool searchProximity;
 
     [Header ("Moviment")]
     public float velMove = 1f;
@@ -20,9 +21,41 @@ public class FollowTarget : MonoBehaviour {
 	
 	void Update ()
     {
+        SearchTarget();
         Move();
         Rotate();
 	}
+
+    private void SearchTarget()
+    {
+        // Validamos se já não temo um alvo definido e se há uma tag definida
+        if (targetTag == "" || (!searchProximity && target != null))
+        {
+            //Nesting - alinhamento de itens
+            //Encerrar o método
+            return;
+        }
+
+        // Escrever minha lógica - Procurar Target
+        GameObject[] targets = GameObject.FindGameObjectsWithTag(targetTag);
+        Transform possibleTarget = null;
+
+        foreach (GameObject checkTarget in targets)
+        {
+            float checkDist = Vector3.Distance(checkTarget.transform.position, transform.position);
+        
+
+            if(possibleTarget == null || checkDist < Vector3.Distance(possibleTarget.transform.position, transform.position))
+            {
+                possibleTarget = checkTarget.transform;
+            }
+        }
+
+        if(possibleTarget != null)
+        {
+            target = possibleTarget;
+        }
+    }
 
     private void Move()
     {
