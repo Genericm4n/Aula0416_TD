@@ -12,10 +12,10 @@ public class FollowTarget : MonoBehaviour {
     public bool searchProximity;
 
     [Header ("Moviment")]
-    public float velMove = 1f;
+    public float velMove = 3.0f;
 
     [Header ("Rotation")]
-    public float velRot = 1f;
+    public float velRot = 3.0f;
     public bool lookAt = false;
     #endregion
 	

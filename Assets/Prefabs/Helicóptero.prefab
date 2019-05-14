@@ -88,8 +88,8 @@ GameObject:
   - component: {fileID: 4065019647751474}
   - component: {fileID: 54493831118584624}
   - component: {fileID: 135803346551356518}
-  - component: {fileID: 135925906042897806}
   - component: {fileID: 114032434079067860}
+  - component: {fileID: 114420828658640562}
   m_Layer: 14
   m_Name: "Helic\xF3ptero"
   m_TagString: Inimigos
@@ -364,22 +364,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   targetTag: 
+  searchProximity: 0
   velMove: 1
   velRot: 1
   lookAt: 0
---- !u!135 &135803346551356518
-SphereCollider:
+--- !u!114 &114420828658640562
+MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1772752362918756}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.68
-  m_Center: {x: 0, y: 0.19, z: -0.16}
---- !u!135 &135925906042897806
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77205d99862a05843afc9a2a964a08dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  explosionPreFab: {fileID: 1414153752367946, guid: cab2d19403adb624498fe56512c886f6,
+    type: 2}
+  rb: {fileID: 54493831118584624}
+--- !u!135 &135803346551356518
 SphereCollider:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
